@@ -1,6 +1,6 @@
-# 码志
+# 这里是Echizen Mike 的Blog
 
-我的个人博客：<https://mazhuang.org>，欢迎 Star 和 Fork。
+我的个人博客：<https://echizenmike.github.io>，欢迎 Star 和 Fork。
 
 ## 概览
 
