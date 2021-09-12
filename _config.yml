@@ -127,7 +127,7 @@ comments_provider: gitalk
 # !!!Important!!! Please modify infos below to yours
 # https://disqus.com
 disqus:
-    username: Mike Z
+    username:
 # https://imsun.net/posts/gitment-introduction/
 gitment:
     owner: echizenmike
@@ -137,10 +137,10 @@ gitment:
         client_secret: 848b10eef9ede97d7e4b7faf5a3f9fdbd034cb78
 # https://github.com/gitalk/gitalk#install
 gitalk:
-    owner: echizenmike
-    repo: blog-comments
-    clientID: ae003c60f480c0fb76a8
-    clientSecret: 848b10eef9ede97d7e4b7faf5a3f9fdbd034cb78
+    owner:
+    repo:
+    clientID:
+    clientSecret:
 # 在使用其它评论组件时可点击显示 Disqus
 lazy_load_disqus : false
 
