@@ -1,7 +1,7 @@
 ---
 layout: post
 title: ELMO、BERT、ERINE、GPT的李宏毅视频学习笔记
-categories: MeachineLearning
+categories: Meachine-Learning
 description: ELMO、BERT、ERINE、GPT的李宏毅视频学习笔记
 keywords: ELMO,BERT,ERINE,GPT
 ---
