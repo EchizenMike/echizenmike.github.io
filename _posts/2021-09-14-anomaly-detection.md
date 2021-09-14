@@ -73,7 +73,7 @@ entropy：给出熵（乱度），entropy越大说明分布平均，不确定是
 
 #### 训练一个可以直接输出confidence的网络
 
-#####框架
+##### 框架
 训练集：辛普森一家的图片，每个图片x有标签y。训练分类器。获得confidence，根据是否超过阈值判断是否为anomaly
 验证集（模仿测试集）：图片中有辛普森一家的人，也有不是的。
 可以通过验证集来计算f（x）的表现，确定超参数的值（比如阈值）
@@ -81,7 +81,7 @@ entropy：给出熵（乱度），entropy越大说明分布平均，不确定是
 
 ![image](https://raw.githubusercontent.com/EchizenMike/echizenmike.github.io/master/images/ml/dl/anomaly_detection_05.png)
 
-### 评估
+## 评估
 方式：在dev set上对模型评价
 注意：使用正确率不是一个好的指标。因为正负样本的比例悬殊。
 一个系统可能正确率很高，但是并没有意义。
