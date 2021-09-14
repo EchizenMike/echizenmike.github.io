@@ -1,7 +1,7 @@
 ---
 layout: post
 title: ELMO、BERT、ERINE、GPT的李宏毅视频学习笔记
-categories: Meachine-Learning
+categories: DL
 description: ELMO、BERT、ERINE、GPT的李宏毅视频学习笔记
 keywords: ELMO,BERT,ERINE,GPT
 ---
@@ -41,3 +41,16 @@ BERT不只是可以用来产生词向量供下游服务，同时也可以直接�
 
 ![image](https://raw.githubusercontent.com/EchizenMike/echizenmike.github.io/master/images/ml/BERT_03.png)
 
+## 三、ERINE
+
+ERINE和BERT不同的地方在于，BERT是**随机遮蔽的字**，而ERINE是**随机遮蔽的词**。这样能更好地捕捉到中文里面词与词的边界关系。
+
+![image](https://raw.githubusercontent.com/EchizenMike/echizenmike.github.io/master/images/ml/ERINE_01.png)
+
+## 四、GPT
+
+GPT是生成式的预训练语言模型，其内部是通过self-attention实现的，“退了”这个词和前面的词作self-attention然后产生“就”。由于self-attention和词的远近是**没有关系**的，因此不需要逆向再操作一遍。
+
+![image](https://raw.githubusercontent.com/EchizenMike/echizenmike.github.io/master/images/ml/GPT_01.png)
+
+![image](https://raw.githubusercontent.com/EchizenMike/echizenmike.github.io/master/images/ml/GPT_02.png)
