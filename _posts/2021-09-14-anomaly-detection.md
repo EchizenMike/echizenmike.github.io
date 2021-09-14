@@ -42,19 +42,19 @@ keywords: anomaly，detection
 类1：正常数据
 类2：异常数据
 **不能解决**
-```
+
 原因1：异常数据太多，无法穷举
 ![image](https://raw.githubusercontent.com/EchizenMike/echizenmike.github.io/master/images/ml/dl/anomaly_detection_03.png)
 原因2：异常数据不好收集
-```
+
 
 ## 分类
-```
+
 * 训练数据有标签，没见过的东西输出unknown(open-set recognition)模型是open的，能够对没见过的东西进行判断。
 * 训练数据没有标签
-    ** 干净的数据
-    ** 数据有脏东西(anomaly)
-```
+    > 干净的数据
+    > 数据有脏东西(anomaly)
+
 
 ## with label
 
