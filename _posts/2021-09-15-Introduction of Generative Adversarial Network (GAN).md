@@ -71,4 +71,5 @@ Learning D：首先从数据库中取出m个真实图片，再根据一个分布
 
 Learning G：把D训练好之后，我们就可以fix D，来训练generator G的参数。首先也需要从分布中随机生成一些噪声z，再输入G，G(zi)再输入D，得到相对应的分数，G的目标是想办法骗过D，不断调整参数θg，使生成的图像所得到的分数越高越好，
 
-$\widetilde{V}$ = $\frac{1}{m}\sum_1^m\log$D(G($z^i$))
+
+$$\widetilde{V} = \frac{1}{m}\sum_1^m logD(G(z^i))$$
