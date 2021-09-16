@@ -68,3 +68,4 @@ Learning D：首先从数据库中取出m个真实图片，再根据一个分布
 ![image](https://raw.githubusercontent.com/EchizenMike/echizenmike.github.io/master/images/ml/dl/gan_11.png)
 
 ![image](https://raw.githubusercontent.com/EchizenMike/echizenmike.github.io/master/images/ml/dl/gan_09.png)
+
