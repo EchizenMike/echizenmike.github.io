@@ -57,7 +57,7 @@ Discriminator可以是一个神经网络，也可以是一个函数f。输入是
 由于我们希望使discriminator的输出分数值越大越好，因此这里使用了梯度上升算法**Gradient Ascent**，也就是梯度下降法前面多乘了一个负号。
 ![image](https://raw.githubusercontent.com/EchizenMike/echizenmike.github.io/master/images/ml/dl/gan_08.png)
 
-现在来叙述一些总的算法流程，![image](https://raw.githubusercontent.com/EchizenMike/echizenmike.github.io/master/images/ml/dl/theta_d.png),![image](https://raw.githubusercontent.com/EchizenMike/echizenmike.github.io/master/images/ml/dl/gan_theta_g.png) 分别表示discriminator和generator的参数。
+现在来叙述一些总的算法流程，![image](https://raw.githubusercontent.com/EchizenMike/echizenmike.github.io/master/images/ml/dl/theta_d.png),![image](https://raw.githubusercontent.com/EchizenMike/echizenmike.github.io/master/images/ml/dl/theta_g.png) 分别表示discriminator和generator的参数。
 
 Learning D：首先从数据库中取出m个真实图片，再根据一个分布随机产生m个vector作为输入![image](https://raw.githubusercontent.com/EchizenMike/echizenmike.github.io/master/images/ml/dl/gan_08_1.png),此时fix G的参数，得到G生成的图像![image](https://raw.githubusercontent.com/EchizenMike/echizenmike.github.io/master/images/ml/dl/gan_08_2.png),再输入discriminator D，不断调整![image](https://raw.githubusercontent.com/EchizenMike/echizenmike.github.io/master/images/ml/dl/theta_d.png),使得得到的分数越大越好，公式：
 
