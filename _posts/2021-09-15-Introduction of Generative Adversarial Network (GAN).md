@@ -57,13 +57,14 @@ Discriminator可以是一个神经网络，也可以是一个函数f。输入是
 由于我们希望使discriminator的输出分数值越大越好，因此这里使用了梯度上升算法**Gradient Ascent**，也就是梯度下降法前面多乘了一个负号。
 ![image](https://raw.githubusercontent.com/EchizenMike/echizenmike.github.io/master/images/ml/dl/gan_08.png)
 
-现在来叙述一些总的算法流程，$\theta_d$,$\theta_g$ 分别表示discriminator和generator的参数。
+现在来叙述一些总的算法流程，![image](https://raw.githubusercontent.com/EchizenMike/echizenmike.github.io/master/images/ml/dl/theta_d.png),![image](https://raw.githubusercontent.com/EchizenMike/echizenmike.github.io/master/images/ml/dl/gan_theta_g.png) 分别表示discriminator和generator的参数。
 
-Learning D：首先从数据库中取出m个真实图片，再根据一个分布随机产生m个vector作为输入{$z^1$,$z^2$,...,$z^m$},此时fix G的参数，得到G生成的图像{$\widetilde{x}^1$,$\widetilde{x}^2$,...,$\widetilde{x}^m$},再输入discriminator D，不断调整$\theta_d$,使得得到的分数越大越好，公式：
+Learning D：首先从数据库中取出m个真实图片，再根据一个分布随机产生m个vector作为输入![image](https://raw.githubusercontent.com/EchizenMike/echizenmike.github.io/master/images/ml/dl/gan_08_1.png),此时fix G的参数，得到G生成的图像![image](https://raw.githubusercontent.com/EchizenMike/echizenmike.github.io/master/images/ml/dl/gan_08_2.png),再输入discriminator D，不断调整![image](https://raw.githubusercontent.com/EchizenMike/echizenmike.github.io/master/images/ml/dl/theta_d.png),使得得到的分数越大越好，公式：
 
-$\widetilde{V}$ = $\frac{1}{m}$$\sum_1^m$$\log$D(x^i) + $\frac{1}{m}$$\sum_1^m$$\log$(1 - D($\widetilde{x}^i$))
+![image](https://raw.githubusercontent.com/EchizenMike/echizenmike.github.io/master/images/ml/dl/gan_10.png)
 
-其中D($x^i$)表示真实图像得到的分数，D的目标就是使真实图像获得的分数越大越好；而D($\widetilde{x}^i$)表示G生成的图像所得到的分数，应该越小越好，所以前面加了负号。为了方便求梯度，在式子前面加入了log，求出梯度$\Delta$$\widetilde{V}$($\theta_d$),再更新$\theta_d$的值，
-$\theta_d$ $\leftarrow$ $\theta_d$ + $\eta$$\Delta$$\widetilde(V)$($\theta_d$)
+其中![image](https://raw.githubusercontent.com/EchizenMike/echizenmike.github.io/master/images/ml/dl/D_xi.png)表示真实图像得到的分数，D的目标就是使真实图像获得的分数越大越好；而![image](https://raw.githubusercontent.com/EchizenMike/echizenmike.github.io/master/images/ml/dl/D_xi_h.png)表示G生成的图像所得到的分数，应该越小越好，所以前面加了负号。为了方便求梯度，在式子前面加入了log，求出梯度![image](https://raw.githubusercontent.com/EchizenMike/echizenmike.github.io/master/images/ml/dl/Delta_d.png),再更新![image](https://raw.githubusercontent.com/EchizenMike/echizenmike.github.io/master/images/ml/dl/theta_d.png)的值，
+
+![image](https://raw.githubusercontent.com/EchizenMike/echizenmike.github.io/master/images/ml/dl/gan_11.png)
 
 ![image](https://raw.githubusercontent.com/EchizenMike/echizenmike.github.io/master/images/ml/dl/gan_09.png)
