@@ -57,7 +57,7 @@ Discriminator可以是一个神经网络，也可以是一个函数f。输入是
 由于我们希望使discriminator的输出分数值越大越好，因此这里使用了梯度上升算法**Gradient Ascent**，也就是梯度下降法前面多乘了一个负号。
 ![image](https://raw.githubusercontent.com/EchizenMike/echizenmike.github.io/master/images/ml/dl/gan_08.png)
 
-现在来叙述一些总的算法流程，$\theta$,$\theta_g$ 分别表示discriminator和generator的参数。
+现在来叙述一些总的算法流程，$ \theta_d $,$ \theta_g $ 分别表示discriminator和generator的参数。
 
 Learning D：首先从数据库中取出m个真实图片，再根据一个分布随机产生m个vector作为输入{$z^1$,$z^2$,...,$z^m$},此时fix G的参数，得到G生成的图像{$\widetilde{x}^1%,$\widetilde{x}^2$,...,$\widetilde{x}^m$},再输入discriminatorD，不断调整\theta_d,使得得到的分数越大越好，公式：
 \widetilde{V} = 1/m\sum\logD(x^i) \p 1/m\sum\log(1 \m D(\widetilde{x}^i))
