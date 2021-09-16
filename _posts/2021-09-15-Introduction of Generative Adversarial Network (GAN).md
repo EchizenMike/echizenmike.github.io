@@ -63,6 +63,6 @@ Learning D：首先从数据库中取出m个真实图片，再根据一个分布
 \widetilde{V} = 1/m\sum\logD(x^i) \p 1/m\sum\log(1 \m D(\widetilde{x}^i))
 
 其中D(\widetilde(x^i))表示真实图像得到的分数，D的目标就是使真实图像获得的分数越大越好；而D(\widetilde{x}^i)表示G生成的图像所得到的分数，应该越小越好，所以前面加了负号。为了方便求梯度，在式子前面加入了log，求出梯度\Delta\widetilde{V}(\theta_d),再更新\theta_d的值，
-\theta_d \leftarrow \theta_d \p \eta\Delta\widetilde(V)(\theta_d)
+\theta_d $\leftarrow$ \theta_d \p \eta\Delta\widetilde(V)(\theta_d)
 
 ![image](https://raw.githubusercontent.com/EchizenMike/echizenmike.github.io/master/images/ml/dl/gan_09.png)
