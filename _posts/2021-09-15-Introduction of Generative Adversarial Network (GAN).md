@@ -47,6 +47,7 @@ Discriminator可以是一个神经网络，也可以是一个函数f。输入是
 
 ### Algorithm
 首先需要随机初始化G和D参数，
+
 **Step 1：**我们需要先调整D的参数，就必须先把G的参数固定。首先把随机产生的vector输入G(fix),生成新的图像后从database中sampled出来的图像进行比较。要实现D如果输入真实图像，就会得高分，与1越接近越好，如果输入生成的图像，就会得低分，与0越接近越好。有了这个标准，我们就可以来训练这个discriminator D;
 ![image](https://raw.githubusercontent.com/EchizenMike/echizenmike.github.io/master/images/ml/dl/gan_07.png)
 **Step 2:**训练好discriminator D之后，我们就可以fix D，来调整generator G。一个vector输入第一代G之后，会生成一张图像，再输入D(fix)，就可以得到一个很低的分数(0.13)。那么G训练的目标就是使生成图片可以“骗”过D，即生成的图片使D给出一个比较高的分数。由于D看过真实的图像，如果给出了很高的分数，就可以说明G生成的图像和真实图像是很接近的。
@@ -56,7 +57,7 @@ Discriminator可以是一个神经网络，也可以是一个函数f。输入是
 由于我们希望使discriminator的输出分数值越大越好，因此这里使用了梯度上升算法**Gradient Ascent**，也就是梯度下降法前面多乘了一个负号。
 ![image](https://raw.githubusercontent.com/EchizenMike/echizenmike.github.io/master/images/ml/dl/gan_08.png)
 
-现在来叙述一些总的算法流程，$\theta_d$,$\theta_g$ 分别表示discriminator和generator的参数。
+现在来叙述一些总的算法流程，$\theta$,$\theta_g$ 分别表示discriminator和generator的参数。
 
 Learning D：首先从数据库中取出m个真实图片，再根据一个分布随机产生m个vector作为输入{$z^1$,$z^2$,...,$z^m$},此时fix G的参数，得到G生成的图像{$\widetilde{x}^1%,$\widetilde{x}^2$,...,$\widetilde{x}^m$},再输入discriminatorD，不断调整\theta_d,使得得到的分数越大越好，公式：
 \widetilde{V} = 1/m\sum\logD(x^i) \p 1/m\sum\log(1 \m D(\widetilde{x}^i))
