@@ -73,3 +73,40 @@ Learning G：把D训练好之后，我们就可以fix D，来训练generator G�
 
 
 $$\widetilde{V} = \frac{1}{m}\sum_1^m logD(G(z^i))$$
+
+求出梯度$\Delta\widetilde{V}(\theta_g)$,再更新$\theta_g$的值，
+
+$$\theta_g\leftarrow \theta_g+ \eta\Delta\widetilde(\theta_g)$$
+
+在每个iteration里，都会进行这个步骤，先训练discriminator，再训练generator；这两个步骤会反复进行。
+
+### Anime Face Generation
+结果展示
+![image](https://raw.githubusercontent.com/EchizenMike/echizenmike.github.io/master/images/ml/dl/gan_12_1.png)
+![image](https://raw.githubusercontent.com/EchizenMike/echizenmike.github.io/master/images/ml/dl/gan_12_2.png)
+![image](https://raw.githubusercontent.com/EchizenMike/echizenmike.github.io/master/images/ml/dl/gan_12_3.png)
+![image](https://raw.githubusercontent.com/EchizenMike/echizenmike.github.io/master/images/ml/dl/gan_12_4.png)
+
+#### Structed learning
+![image](https://raw.githubusercontent.com/EchizenMike/echizenmike.github.io/master/images/ml/dl/gan_13.png)
+![image](https://raw.githubusercontent.com/EchizenMike/echizenmike.github.io/master/images/ml/dl/gan_14.png)
+![image](https://raw.githubusercontent.com/EchizenMike/echizenmike.github.io/master/images/ml/dl/gan_15.png)
+
+### Why Structured Learning Challenging?
+
+One-shot/Zero-shot Learning，如果有的类别都没有范例，或者只有很少一部分的范例。
+
+而structured learning是一种极端的One-shot learning，由于output为一个structure，比如一个句子，可能这些句子在training data中从来没出现过，那么如何学习去输出一个从来没看到的structure，machine必须学会去创造。
+![image](https://raw.githubusercontent.com/EchizenMike/echizenmike.github.io/master/images/ml/dl/gan_16.png)
+
+machine还必须学会如何去planing，有全局观；比如sentence generation中，如果只看第一句话，会认为是负面的，但如果你把整句话都看完，就会发现这整句话在表达一个正面的意思。
+
+![image](https://raw.githubusercontent.com/EchizenMike/echizenmike.github.io/master/images/ml/dl/gan_17.png)
+
+### Structured Learning Approach
+structured learning有两套方法：
+* Bottom up，机器在生成一个部件时，会先生成多个component，这种方法一个很大的问题就是容易失去大局观；
+
+* Top down，产生一个完整的物件之后，再去从整体上看产生物件好不好。
+
+把这两种方法结合起来就是Generator
