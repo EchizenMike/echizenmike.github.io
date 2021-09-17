@@ -109,4 +109,25 @@ structured learning有两套方法：
 
 * Top down，产生一个完整的物件之后，再去从整体上看产生物件好不好。
 
+![image](https://raw.githubusercontent.com/EchizenMike/echizenmike.github.io/master/images/ml/dl/gan_18.png)
+
 把这两种方法结合起来就是Generator
+
+### Can Generator learn by itself?
+
+#### Generator
+对于Generator，首先输入不同的vector，就可以输出不同的图片。如果我们现在输入1对应的vector，generator会生成一张image，目标是使image和真实的图像越接近越好，这个真实图像现在generator能看到，那么这不就和一般的supervised learning一模一样了吗？
+![image](https://raw.githubusercontent.com/EchizenMike/echizenmike.github.io/master/images/ml/dl/gan_19.png)
+
+那我们怎么知道输入的那些vector的数值呢？
+
+我们可以用一个Encoder来表示，把image输入这个NN Encoder，就会输出对应的特征，把图像的特征用vector来表示即可。
+![image](https://raw.githubusercontent.com/EchizenMike/echizenmike.github.io/master/images/ml/dl/gan_20.png)
+
+#### Auto-encoder
+
+Auto-encoder分为<u>encoder</u>和<u>decoder</u>。对于28x28图像，先用encoder使得输入的图像变成<u>code</u>,decoder把这个code再恢复成原来的图像，这两者会一起进行学习。
+
+![image](https://raw.githubusercontent.com/EchizenMike/echizenmike.github.io/master/images/ml/dl/gan_21.png)
+
+![image](https://github.com/EchizenMike/echizenmike.github.io/blob/master/images/ml/dl/ELMO_01.png)
