@@ -130,4 +130,4 @@ Auto-encoder分为<u>encoder</u>和<u>decoder</u>。对于28x28图像，先用en
 
 ![image](https://raw.githubusercontent.com/EchizenMike/echizenmike.github.io/master/images/ml/dl/gan_21.png)
 
-![image](https://github.com/EchizenMike/echizenmike.github.io/blob/master/images/ml/dl/ELMO_01.png)
+![image](http://github.com/EchizenMike/echizenmike.github.io/blob/master/images/ml/dl/ELMO_01.png)
