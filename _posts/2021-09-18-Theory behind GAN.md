@@ -46,12 +46,12 @@ $$L = \Pi_1^mP_G(x^i,\theta)$$
 
 (不加是对数似然函数，加上负号是交叉熵，最小化交叉熵等价于最大似然，加上是KL散度。)
 
-<center>![image](https://raw.githubusercontent.com/EchizenMike/echizenmike.github.io/master/images/ml/dl/gan_4_4.png)</center>
+![image](https://raw.githubusercontent.com/EchizenMike/echizenmike.github.io/master/images/ml/dl/gan_4_4.png)
 
 
 现在我们的问题是找到参数$\theta^*$,使得E<sub>x~P<sub>data</sub></sub>[$logP_G(x;\theta)$]可以取最大值。${x^1,x^2,...,x^m}$是从distribution $P$<sub>$data$</sub>中sample出来的，我们把这里的$E$<sub>x~P<sub>data</sub></sub>展开，从离散值变到连续值，即：
 
-<center>![image](https://raw.githubusercontent.com/EchizenMike/echizenmike.github.io/master/images/ml/dl/gan_4_5.png)</center>
+![image](https://raw.githubusercontent.com/EchizenMike/echizenmike.github.io/master/images/ml/dl/gan_4_5.png)
 
 由于我们的目标是找到$P_G$分布对应的参数，现在加入一个常数项![image](https://raw.githubusercontent.com/EchizenMike/echizenmike.github.io/master/images/ml/dl/gan_4_6.png)，对最大化问题也不会产生影响，即：![image](https://raw.githubusercontent.com/EchizenMike/echizenmike.github.io/master/images/ml/dl/gan_4_7.png)
 
