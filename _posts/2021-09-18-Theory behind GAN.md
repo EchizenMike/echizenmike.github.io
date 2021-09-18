@@ -17,7 +17,7 @@ keywords: GAN
 那么我们现在的目标就是让机器找到这个distribution。
 （但这个distribution长什么样子是不知道的，我们可以收集很多的x得知x可能在某些地方分布比较高。但是把它的式子找出来，我们是不知道怎么做的。）
 
-![image](https://github.com/EchizenMike/echizenmike.github.io/blob/master/images/ml/dl/gan_4_1.png)
+![image](https://raw.githubusercontent.com/EchizenMike/echizenmike.github.io/master/images/ml/dl/gan_4_1.png)
 
 那么有GAN之前，我们如何做Generate
 ## Maximum Likelihood Estimation
