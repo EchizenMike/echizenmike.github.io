@@ -5,26 +5,65 @@ categories: DL
 description: ELMO、BERT、ERINE、GPT的李宏毅视频学习笔记
 keywords: ELMO,BERT,ERINE,GPT
 ---
+## 背景
 
+机器是如何理解我们的文字的呢？最早的技术是1-of-N encoding，把每个词汇表示成一个向量，每一个向量只有一个地方为1，其他地方为0。但是这么做词汇词汇之间的<u>关联</u>没有考虑，因为不同词之间的距离都是一样的。
+
+所以，接下来有了word class的概念，举例说dog、cat和bird都是动物，它们应该是同类。但是动物之间也是有区别的，如dog和cat是<u>哺乳类</u>动物，和鸟类还是有区别的。
+
+后来有了更进阶的想法，乘坐word embedding，我们用一个向量表示一个单词，相近的词汇距离较近，如cat和dog。那word embedding怎么训练呢？比较熟知的就是word2vec方法。
+
+![image](https://raw.githubusercontent.com/EchizenMike/echizenmike.github.io/master/images/ml/dl/ELMO_04.png)
+
+但是，同一个词可能有不同的意思，如下图的bank，前两个指<u>银行</u>，后两个指河堤：
+
+![image](https://raw.githubusercontent.com/EchizenMike/echizenmike.github.io/master/images/ml/dl/ELMO_05.png)
+
+尽管有不同的意思，但使用**传统的word embedding的方法，相同的单词都会对应同样的embedding**。但我们希望针对不同的意思bank，可以给出不同的embedding表示。
+
+![image](https://raw.githubusercontent.com/EchizenMike/echizenmike.github.io/master/images/ml/dl/ELMO_06.png)
+
+根据上下文语境的不同，同一个单词bank我们希望得到不同的embedding，如果bank的意思是银行，我们期望它们之间embedding能够相近，同时能够与何地意思的bank相距较远。
+
+基于这个思想，首先有了ELMO。
 ## 一、ELMO
 
 ELMO是通过基于RNN来预测词向量的，如下图所示，对于“潮水退了就知道谁没穿裤子”这句话里面的“潮水”这个词，通过正向RNN和逆向RNN都会产生一个词向量，然后把这两个词向量进行加权得到最后的词向量。其中加权的权重参数是从下游任务里面学习到的。
 
 ![image](https://raw.githubusercontent.com/EchizenMike/echizenmike.github.io/master/images/ml/dl/ELMO_01.png)
 
+当然，我们可以搞很多层：
+
+![image](https://raw.githubusercontent.com/EchizenMike/echizenmike.github.io/master/images/ml/dl/ELMO_07.png)
+
+这么多层的RNN，内部每一层输出都是单词的一个表示，那我们取哪一层的输出来代表单词的embedding呢？ELMO的做法就是我全都要。
+
+在ELMO中，一个单词会得到多个embedding，对不同的embedding进行加权求和，可以得到最后的embedding用于下游任务。要说明一个这里的embedding个数，下图中只画了两层RNN输出的hidden state，其实输入到RNN的原始embedding也是需要的，所以你会看到说右下角的图片中，包含了三个embedding。
+
 ![image](https://raw.githubusercontent.com/EchizenMike/echizenmike.github.io/master/images/ml/dl/ELMO_02.png)
 
+但不同的权重是基于下游任务<u>学习</u>出来的，上图中右下角给了5个不同的任务，其得到的embedding权重各不相同。
+
 ## 二、BERT
+
+Bert是Bidirectional Encoder Representations from Transformers的缩写，它也是芝麻街的人物之一。Transformer中的Encoder就是Bert预训练的架构。李宏毅老师特别提示：如果是中文的话，可以把字作为单位，而不是词。
+
+![image](https://raw.githubusercontent.com/EchizenMike/echizenmike.github.io/master/images/ml/dl/ELMO_08.png)
+
 
 BERT 的训练过程有两种方式，一种是Masked LM，另外一种是预测下一句话的方法。
 
 ### 1. Masked LM
+
+文献中给出了两种训练的方法，第一个称为Masked LM，做法是随机把一些单词变为Mask，让模型去猜测盖住的地方是什么单词。假设输入里面的第二个词汇是被盖住的，把其对应的embedding输入到一个多分类模型中，来预测被盖住的单词。
 
 Masked LM是通过随机遮蔽15%的词，然后对这15%的词来进行预测。预测的时候将MASK位置产生的向量通过一个线性多分类器来得到是哪个词。如果两个词填在同一个地方没有违和感，那么这两个词就有相似的embedding。
 
 ![image](https://raw.githubusercontent.com/EchizenMike/echizenmike.github.io/master/images/ml/dl/BERT_01.png)
 
 ### 2.Next Sentence Prediction
+
+另一种方法是预测下一个句子，这里，先把两句话连起来，中间加一个[SEP]作为两个句子的分隔符。而在两个句子的开头，放一个[CLS]标志符，将其得到的embedding输入到二分类的模型，输出两个句子是不是接在一起的。
 
 这个是通过输入两句话（用SEP分隔），来预测输出这两句话是不是连续的。通过这样的方式来学习语言模型。通常来说，方法1和方法2是同时被使用的。
 
