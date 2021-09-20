@@ -1,15 +1,10 @@
 ---
 layout: default
-music-id: 1300885690
 ---
 {% assign assets_base_url = site.url %}
 {% if site.cdn.jsdelivr.enabled %}
 {% assign assets_base_url = "https://cdn.jsdelivr.net/gh/" | append: site.repository | append: '@master' %}
 {% endif %}
-<!-- 在正文开头添加网易云音乐插件 -->
-{% if page.music-id %}
-  {% include cloud-music.html %}
-{% endif %} 
 <section class="collection-head small geopattern" data-pattern-id="{{ page.title | truncate: 15, ''}}">
 <div class="container">
   <div class="columns">
