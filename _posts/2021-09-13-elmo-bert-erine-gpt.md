@@ -4,7 +4,6 @@ title: ELMO、BERT、ERINE、GPT的李宏毅视频学习笔记
 categories: DL
 description: ELMO、BERT、ERINE、GPT的李宏毅视频学习笔记
 keywords: ELMO,BERT,ERINE,GPT
-music-id: 1300885690
 ---
 ## 背景
 
@@ -12,7 +11,7 @@ music-id: 1300885690
 
 所以，接下来有了word class的概念，举例说dog、cat和bird都是动物，它们应该是同类。但是动物之间也是有区别的，如dog和cat是<u>哺乳类</u>动物，和鸟类还是有区别的。
 
-后来有了更进阶的想法，乘坐word embedding，我们用一个向量表示一个单词，相近的词汇距离较近，如cat和dog。那word embedding怎么训练呢？比较熟知的就是word2vec方法。
+后来有了更进阶的想法，称作word embedding，我们用一个向量表示一个单词，相近的词汇距离较近，如cat和dog。那word embedding怎么训练呢？比较熟知的就是word2vec方法。
 
 ![image](https://raw.githubusercontent.com/EchizenMike/echizenmike.github.io/master/images/ml/dl/EBEG_01.png)
 
