@@ -123,7 +123,7 @@ ERINE和BERT不同的地方在于，BERT是**随机遮蔽的字**，而ERINE是*
 
 Bert学到了什么呢？可以看下下面两个文献（给大伙贴出来：<https://arxiv.org/abs/1905.05950> 和<https://openreview.net/pdf?id=SJzSgnRcKX>
 
-![image](https://raw.githubusercontent.com/EchizenMike/echizenmike.github.io/master/images/ml/dl/ERIGE_02.png)
+![image](https://raw.githubusercontent.com/EchizenMike/echizenmike.github.io/master/images/ml/dl/ERINE_02.png)
 
 
 ## 四、GPT
