@@ -6,6 +6,19 @@
   <!-- Added by javascript below -->
   <dl></dl>
   </section>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.0/dist/APlayer.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.0/dist/APlayer.min.js"></script>
+  <script>
+    const ap = new APlayer({
+      container: document.getElementById('aplayer'),
+      audio: [{
+        name: 'name',
+        artist: 'artist',
+        url: 'url.mp3',
+        cover: 'cover.jpg'
+      }]
+    });
+  </script>
 <div id="aplayer"></div>
 </div>
 <script src="{{ assets_base_url }}/assets/js/jquery.toc.js"></script>
