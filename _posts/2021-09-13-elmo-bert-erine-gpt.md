@@ -4,7 +4,6 @@ title: ELMO、BERT、ERINE、GPT的李宏毅视频学习笔记
 categories: DL
 description: ELMO、BERT、ERINE、GPT的李宏毅视频学习笔记
 keywords: ELMO,BERT,ERINE,GPT
-music-id: 568994439
 ---
 ## 背景
 
