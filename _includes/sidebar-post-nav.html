@@ -1,8 +1,23 @@
+<style id="screen">
+  @media screen and (max-width: 960px){
+    /*手机端css*/
+    width: 360px;
+    right: 5px;
+  }
+  
+  @media screen and (min-width: 960px){
+    /* 电脑端CSS代码 */
+    width: 300px;
+    right: 5px;
+  }
+  </style>
+  
+
 
 <h3>Music Player</h3>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.0/dist/APlayer.min.css">
-  <div id="aplayer" style="width: 360px;right: 5px;"></div>
+  <div id="aplayer" class="screen" media = "screen and (max-width: 960px)"></div>
   <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.0/dist/APlayer.min.js"></script>
   <script>
     const ap = new APlayer({
