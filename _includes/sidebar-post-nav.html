@@ -1,7 +1,7 @@
 <h3>Music Player</h3>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.0/dist/APlayer.min.css">
-  <div id="aplayer" style="width:100%;right:5px"></div>
+  <div id="aplayer"></div>
   <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.0/dist/APlayer.min.js"></script>
   <script>
     const ap = new APlayer({
@@ -27,3 +27,12 @@
   </section>
 </div>
 <script src="{{ assets_base_url }}/assets/js/jquery.toc.js"></script>
+<script>
+  var ap = document.getElementById("aplayer");
+  var wid = window.screen.width;
+  if(wid < 480){
+    ap.setAttribute("style","width:360px;right:5");
+  }else{
+    ap.setAttribute("style","width:300px;right:5");
+  }
+</script>
